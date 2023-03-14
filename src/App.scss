@@ -1,0 +1,24 @@
+@import './assets/styles/normalize.scss';
+@import './assets/styles/variables.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $white;
+  color: $black;
+  font-weight: 400;
+  font-family: 'Work Sans', sans-serif;
+}
+
+html,
+body,
+#root,
+.app-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
