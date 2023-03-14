@@ -107,15 +107,6 @@ a, a:visited {
     height: auto;
   }
 
-  [type="search"] {
-    -webkit-appearance: textfield; /* 1 */
-    outline-offset: -2px; /* 2 */
-  }
-
-  [type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
-
   ::-webkit-file-upload-button {
     -webkit-appearance: button; /* 1 */
     font: inherit; /* 2 */
@@ -123,6 +114,10 @@ a, a:visited {
 
   [hidden] {
     display: none;
+  }
+
+  ul {
+    padding: 0;
   }
 
   li {

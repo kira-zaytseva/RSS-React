@@ -1,17 +1,25 @@
+import AboutUs from './../pages/aboutUs/aboutUs';
 import React from 'react';
 import App from '../App';
+import ErrorPage from './../pages/errorPage/errorPage';
+import Main from './../pages/main/main';
 
 export enum Route {
-  WELCOME = '/',
+  MAIN = '/',
+  ABOUT = '/about',
 }
 export const routes = [
   {
     element: <App />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
-        path: Route.WELCOME,
-        element: <App />,
+        path: Route.MAIN,
+        element: <Main />,
+      },
+      {
+        path: Route.ABOUT,
+        element: <AboutUs />,
       },
     ],
   },
