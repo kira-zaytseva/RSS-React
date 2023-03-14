@@ -22,3 +22,9 @@ body,
   width: 100%;
 }
 
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
