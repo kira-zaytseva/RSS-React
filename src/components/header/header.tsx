@@ -6,7 +6,7 @@ import './header.scss';
 const Header = () => {
   return (
     <header className="header">
-      <span>Page.name</span>
+      <span>1</span>
       <nav className="header__nav">
         <ul className="header__nav__list">
           <li>

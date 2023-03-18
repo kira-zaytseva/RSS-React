@@ -1,6 +1,7 @@
-@import './../../assets/styles/variables.scss';
-
-.search-input {
-  border: 1px solid $orange;
-  background-color: transparent;
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  overflow: scroll;
 }

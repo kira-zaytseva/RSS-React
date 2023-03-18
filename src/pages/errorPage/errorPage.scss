@@ -1,5 +1,12 @@
 @import './../../assets/styles/variables.scss';
 
-.error-title {
-  color: $orange;
+.error {
+  &-title {
+    margin-bottom: 0.5rem;
+    color: $orange;
+  }
+
+  &-image {
+    width: 450px;
+  }
 }
