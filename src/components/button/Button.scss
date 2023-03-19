@@ -1,0 +1,14 @@
+@import './../../assets/styles/variables.scss';
+
+.button {
+  display: flex;
+  align-items: center;
+  color: $black;
+  background-color: $white;
+  border: 1px solid $border;
+
+  &:hover {
+    border: 1px solid $orange;
+    color: $black;
+  }
+}
