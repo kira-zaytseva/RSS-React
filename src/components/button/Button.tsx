@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Button.scss';
 import { ButtonProp } from './types';
 
-const Button = ({ btnText, classes }: ButtonProp) => {
-  return (
-    <button type="submit" className={`button ${classes}`}>
-      {btnText}
-    </button>
-  );
-};
+class Button extends Component<ButtonProp> {
+  render() {
+    const { btnText, classes } = this.props;
+    return (
+      <button type="submit" className={`button ${classes}`}>
+        {btnText}
+      </button>
+    );
+  }
+}
 
 export default Button;
