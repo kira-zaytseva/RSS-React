@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { withRouter } from './../../hoc/withRouter/withRouter';
-import { pageNames, Route } from './../../router/routes';
+import { withRouter } from '../../hoc/withRouter/withRouter';
+import { pageNames, Route } from '../../router/routes';
 import './header.scss';
 import { WithRouterProps } from 'hoc/withRouter/types';
 
@@ -12,7 +12,7 @@ class HeaderComponent extends Component<WithRouterProps> {
     } = this.props;
     return (
       <header className="header">
-        <span>{pageNames[pathname] || ''}</span>
+        <span>{pageNames[pathname] || 'Error page'}</span>
         <nav className="header__nav">
           <ul className="header__nav__list">
             <li>

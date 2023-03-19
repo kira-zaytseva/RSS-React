@@ -1,7 +1,7 @@
-import { Header } from './../../components/header/header';
+import { Header } from '../../components/header/Header';
 import React, { Component } from 'react';
 import './errorPage.scss';
-import Footer from './../../components/footer/footer';
+import Footer from './../../components/footer/Footer';
 
 export default class ErrorPage extends Component {
   render() {

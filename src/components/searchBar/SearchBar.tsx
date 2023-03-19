@@ -8,7 +8,9 @@ class SearchBar extends Component {
 
   componentDidMount() {
     const currentSearch = getStorageByKey('searchValue');
-    this.setState({ value: currentSearch });
+    if (currentSearch) {
+      this.setState({ value: currentSearch });
+    }
   }
 
   componentWillUnmount() {
