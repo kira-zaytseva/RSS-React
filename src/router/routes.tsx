@@ -3,7 +3,6 @@ import React from 'react';
 import App from '../App';
 import ErrorPage from './../pages/errorPage/errorPage';
 import Main from './../pages/main/main';
-import { key } from 'localforage';
 
 export enum Route {
   MAIN = '/',

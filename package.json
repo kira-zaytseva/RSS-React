@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts,.tsx"
   },
   "dependencies": {
     "eslint-config-prettier": "^8.5.0",
