@@ -81,10 +81,10 @@ a, a:visited {
 
   fieldset {
     padding: 0.35em 0.75em 0.625em;
+    border: none;
   }
 
   legend {
-    box-sizing: border-box; /* 1 */
     color: inherit; /* 2 */
     display: table; /* 1 */
     max-width: 100%; /* 1 */
@@ -98,7 +98,6 @@ a, a:visited {
 
   [type="checkbox"],
   [type="radio"] {
-    box-sizing: border-box; /* 1 */
     padding: 0; /* 2 */
   }
 

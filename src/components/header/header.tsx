@@ -31,6 +31,14 @@ class HeaderComponent extends Component<WithRouterProps> {
                 About Us
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to={Route.FORM}
+                className={({ isActive }) => (isActive ? 'nav__link-active' : 'nav__link')}
+              >
+                Form
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </header>

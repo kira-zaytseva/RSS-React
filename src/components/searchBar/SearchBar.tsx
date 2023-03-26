@@ -30,7 +30,7 @@ class SearchBar extends Component {
           onChange={this.onChange}
           value={this.state.value}
         ></input>
-        <Button btnText="SEARCH" />
+        <Button btnText="search" />
       </form>
     );
   }
