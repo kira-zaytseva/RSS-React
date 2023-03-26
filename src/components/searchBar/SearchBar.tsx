@@ -23,7 +23,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form className="search-form">
+      <form className="search-form" data-testid="SearchBar">
         <input
           type="search"
           className="search-input"

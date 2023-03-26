@@ -8,5 +8,7 @@ describe('Footer', () => {
     render(<Footer />);
 
     screen.debug();
+
+    expect(screen.getByTestId('Footer')).toBeInTheDocument();
   });
 });

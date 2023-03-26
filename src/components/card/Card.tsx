@@ -6,7 +6,7 @@ class Card extends Component<CardProp> {
   render() {
     const { classes, imgAlt, imgLink, imgAuthor, imgYear, cardTitle } = this.props;
     return (
-      <li className={`card ${classes}`}>
+      <li className={`card ${classes}`} data-testid="Card">
         <img src={imgLink} alt={imgAlt} className="card-img"></img>
         <div className="card-description">
           <p className="card-title">{cardTitle}</p>

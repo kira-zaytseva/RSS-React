@@ -3,4 +3,5 @@ export interface RadioButtonProp {
   legend: string;
   options?: string[];
   required?: boolean;
+  currentRef?: React.RefObject<HTMLInputElement>;
 }

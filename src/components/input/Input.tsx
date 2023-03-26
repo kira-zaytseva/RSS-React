@@ -13,9 +13,11 @@ class Input extends Component<InputProp> {
       required = false,
       fieldsetClasses,
       labelClasses,
+      error,
+      currentRef,
     } = this.props;
     return (
-      <fieldset className={`input-fieldset ${fieldsetClasses}`}>
+      <fieldset className={`input-fieldset ${fieldsetClasses}`} data-testid="Input">
         <label htmlFor={id} className={labelClasses}>
           {label}
         </label>
@@ -25,7 +27,9 @@ class Input extends Component<InputProp> {
           type={type}
           placeholder={placeholder}
           required={required}
+          ref={currentRef}
         ></input>
+        {error && <span className="input-error">{error}</span>}
       </fieldset>
     );
   }

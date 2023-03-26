@@ -4,11 +4,16 @@ import './select.scss';
 
 class Select extends Component<SelectProp> {
   render() {
-    const { classes, options, id, label, defaultValue } = this.props;
+    const { classes, options, id, label, defaultValue, currentRef } = this.props;
     return (
-      <fieldset className="select-fieldset">
+      <fieldset className="select-fieldset" data-testid="Select">
         <label htmlFor={id}>{label}</label>
-        <select className={`select ${classes}`} id={id} defaultValue={defaultValue}>
+        <select
+          className={`select ${classes}`}
+          id={id}
+          defaultValue={defaultValue}
+          ref={currentRef}
+        >
           {options.map((option) => (
             <option value={option} key={option}>
               {option}

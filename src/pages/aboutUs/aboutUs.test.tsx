@@ -8,5 +8,7 @@ describe('AboutUs', () => {
     render(<AboutUs />);
 
     screen.debug();
+
+    expect(screen.getByTestId('AboutUs')).toBeInTheDocument();
   });
 });

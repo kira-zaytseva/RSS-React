@@ -8,4 +8,6 @@ export interface InputProp {
   required?: boolean;
   fieldsetClasses?: string;
   labelClasses?: string;
+  error?: string;
+  currentRef?: React.RefObject<HTMLInputElement>;
 }

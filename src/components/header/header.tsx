@@ -11,7 +11,7 @@ class HeaderComponent extends Component<WithRouterProps> {
       location: { pathname },
     } = this.props;
     return (
-      <header className="header">
+      <header className="header" data-testid="Header">
         <span>{pageNames[pathname] || 'Error page'}</span>
         <nav className="header__nav">
           <ul className="header__nav__list">

@@ -8,5 +8,7 @@ describe('Button', () => {
     render(<Button btnText="hi" />);
 
     screen.debug();
+
+    expect(screen.getByTestId('Button')).toBeInTheDocument();
   });
 });

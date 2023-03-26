@@ -8,5 +8,7 @@ describe('SearchBar', () => {
     render(<SearchBar />);
 
     screen.debug();
+
+    expect(screen.getByTestId('SearchBar')).toBeInTheDocument();
   });
 });

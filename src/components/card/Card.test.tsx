@@ -17,5 +17,7 @@ describe('Card', () => {
     );
 
     screen.debug();
+
+    expect(screen.getByTestId('Card')).toBeInTheDocument();
   });
 });

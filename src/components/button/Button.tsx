@@ -7,7 +7,7 @@ class Button extends Component<ButtonProp> {
     const { btnText, classes } = this.props;
 
     return (
-      <button type="submit" className={`button ${classes}`}>
+      <button type="submit" className={`button ${classes}`} data-testid="Button">
         {btnText}
       </button>
     );

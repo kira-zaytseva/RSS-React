@@ -13,5 +13,7 @@ describe('ErrorPage', () => {
     );
 
     screen.debug();
+
+    expect(screen.getByTestId('ErrorPage')).toBeInTheDocument();
   });
 });

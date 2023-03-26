@@ -8,5 +8,7 @@ describe('CardList', () => {
     render(<CardList classes="profile-card" />);
 
     screen.debug();
+
+    expect(screen.getByTestId('card-list')).toBeInTheDocument();
   });
 });

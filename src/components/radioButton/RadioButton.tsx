@@ -4,9 +4,9 @@ import './RadioButton.scss';
 
 class RadioButton extends Component<RadioButtonProp> {
   render() {
-    const { classes, legend, options, required = false } = this.props;
+    const { classes, legend, options, required = false, currentRef } = this.props;
     return (
-      <fieldset className="radio-fieldset">
+      <fieldset className="radio-fieldset" data-testid="RadioButton">
         <legend>{legend}</legend>
         {options?.map((el) => (
           <div key={el} className="radio-field">
@@ -19,6 +19,7 @@ class RadioButton extends Component<RadioButtonProp> {
               type="radio"
               name={legend}
               required={required}
+              ref={currentRef}
             ></input>
           </div>
         ))}

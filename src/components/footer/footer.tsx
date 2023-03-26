@@ -5,7 +5,7 @@ import rssSchool from './../../assets/img/rs_school_js.svg';
 class Footer extends Component {
   render() {
     return (
-      <footer className="footer">
+      <footer className="footer" data-testid="Footer">
         <a
           className="footer__github-link"
           href="https://github.com/kira-zaytseva"

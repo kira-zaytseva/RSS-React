@@ -13,4 +13,9 @@
     flex-direction: column;
     padding: 0;
   }
+
+  &-error {
+    color: $red;
+    font-size: 0.7rem;
+  }
 }

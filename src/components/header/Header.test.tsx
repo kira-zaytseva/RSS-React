@@ -13,5 +13,7 @@ describe('Header', () => {
     );
 
     screen.debug();
+
+    expect(screen.getByTestId('Header')).toBeInTheDocument();
   });
 });

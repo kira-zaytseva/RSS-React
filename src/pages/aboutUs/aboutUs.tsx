@@ -5,7 +5,7 @@ export default class AboutUs extends Component {
   render() {
     return (
       <main className="main">
-        <section className="about-info">
+        <section className="about-info" data-testid="AboutUs">
           <img src="https://i.imgur.com/BvB4bUy.jpg" className="about-photo" alt="Kira Zaytseva" />
           <h1 className="about-name">Hi! I am Kira Zaytseva</h1>
           <p className="about-description">You are on the online art gallery. Enjoy!</p>

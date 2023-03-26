@@ -9,7 +9,7 @@ class CardList extends Component<CardListProp> {
   render() {
     const { classes } = this.props;
     return (
-      <ul className={`list card-list ${classes}`}>
+      <ul className={`list card-list ${classes}`} data-testid="card-list">
         {paintings.map((el: Painting) => {
           return (
             <Card
