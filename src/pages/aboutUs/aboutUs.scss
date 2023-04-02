@@ -1,0 +1,30 @@
+.about {
+  &-info {
+    display: grid;
+    grid-template-areas: 
+    'photo name'
+    'photo description'
+    'photo contacts';
+    grid-template-columns: 350px 1fr;
+    grid-template-rows: 1fr 1fr 2fr;
+  }
+
+  &-photo {
+    grid-area: photo;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  &-name {
+    grid-area: name;
+  }
+
+  &-contacts {
+    grid-area: contacts;
+  }
+
+  &-description {
+    grid-area: description;
+    font-size: 1.5rem;
+  }
+}
