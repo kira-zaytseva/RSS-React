@@ -1,7 +1,7 @@
-import AboutUs from './../pages/aboutUs/aboutUs';
+import { AboutUs } from './../pages/aboutUs/aboutUs';
 import React from 'react';
 import App from '../App';
-import ErrorPage from './../pages/errorPage/errorPage';
+import { ErrorPage } from './../pages/errorPage/errorPage';
 import Main from './../pages/main/main';
 import Form from '../pages/form/Form';
 

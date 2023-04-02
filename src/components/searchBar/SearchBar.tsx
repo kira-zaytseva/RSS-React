@@ -1,39 +1,35 @@
 import Button from './../../components/button/Button';
-import React, { Component } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './SearchBar.scss';
 import { getStorageByKey, setStorageByKey } from './../../utils/storage';
+import Input from '../../components/input/Input';
 
-class SearchBar extends Component {
-  state = { value: '' };
+function SearchBar() {
+  const [searchValue, setSearchValue] = useState('');
+  const searchValueRef = useRef(searchValue);
 
-  componentDidMount() {
+  useEffect(() => {
     const currentSearch = getStorageByKey('searchValue');
     if (currentSearch) {
-      this.setState({ value: currentSearch });
+      setSearchValue(currentSearch);
+      searchValueRef.current = currentSearch;
     }
-  }
+    return () => {
+      setStorageByKey('searchValue', searchValueRef.current);
+    };
+  }, []);
 
-  componentWillUnmount() {
-    setStorageByKey('searchValue', this.state.value);
-  }
-
-  onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ value: e.target.value });
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
+    searchValueRef.current = e.target.value;
   };
 
-  render() {
-    return (
-      <form className="search-form" data-testid="SearchBar">
-        <input
-          type="search"
-          className="search-input"
-          onChange={this.onChange}
-          value={this.state.value}
-        ></input>
-        <Button btnText="search" />
-      </form>
-    );
-  }
+  return (
+    <form className="search-form" data-testid="SearchBar">
+      <Input type="search" classes="search-input" onChange={onChange} value={searchValue} />
+      <Button btnText="search" />
+    </form>
+  );
 }
 
 export default SearchBar;

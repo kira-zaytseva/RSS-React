@@ -11,10 +11,15 @@
   }
 
   &-input {
-    width: 15rem;
-    border: 1px solid $black;
-    border-radius: .5rem;
-    background-color: transparent;
-    color: $black;
+    @at-root {
+      input#{&} {
+        width: 15rem;
+        height: 2rem;
+        border: 1px solid $black;
+        border-radius: .5rem;
+        background-color: transparent;
+        color: $black;
+      }
+    }
   }
 }

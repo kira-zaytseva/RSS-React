@@ -1,31 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { RadioButtonProp } from './type';
 import './RadioButton.scss';
 
-class RadioButton extends Component<RadioButtonProp> {
-  render() {
-    const { classes, legend, options, required = false, currentRef } = this.props;
-    return (
-      <fieldset className="radio-fieldset" data-testid="RadioButton">
-        <legend>{legend}</legend>
-        {options?.map((el) => (
-          <div key={el} className="radio-field">
-            <label className="radio-label" htmlFor={el}>
-              {el}
-            </label>
-            <input
-              id={el}
-              className={`radio ${classes}`}
-              type="radio"
-              name={legend}
-              required={required}
-              ref={currentRef}
-            ></input>
-          </div>
-        ))}
-      </fieldset>
-    );
-  }
-}
+const RadioButton: React.FC<RadioButtonProp> = ({
+  classes,
+  options,
+  error,
+  legend,
+  name,
+  register,
+  rules,
+}) => {
+  return (
+    <fieldset className="radio-fieldset" data-testid="RadioButton">
+      <legend>{legend}</legend>
+      {options?.map((el) => (
+        <div key={el} className="radio-field">
+          <label className="radio-label" htmlFor={el}>
+            {el}
+          </label>
+          <input
+            id={el}
+            className={`radio ${classes}`}
+            type="radio"
+            {...(register ? { ...register(name, rules) } : {})}
+            value={el}
+          ></input>
+        </div>
+      ))}
+      {error && <span className="form-error">{error}</span>}
+    </fieldset>
+  );
+};
 
 export default RadioButton;

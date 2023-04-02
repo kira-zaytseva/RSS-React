@@ -3,6 +3,9 @@ export interface SelectProp {
   options: string[];
   id: string;
   label: string;
-  defaultValue: string;
-  currentRef?: React.RefObject<HTMLSelectElement>;
+  name?: string;
+  defaultValue?: string;
+  error?: string;
+  onBlur?: (e: React.FocusEvent<HTMLSelectElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }

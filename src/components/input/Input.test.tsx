@@ -3,8 +3,8 @@ import React from 'react';
 import Input from './Input';
 
 describe('Input', () => {
-  it('input header', () => {
-    render(<Input type="text" id="test" label="test" />);
+  it('renders input', () => {
+    render(<Input type="text" id="test" />);
 
     screen.debug();
 
