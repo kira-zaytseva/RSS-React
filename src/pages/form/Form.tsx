@@ -73,7 +73,7 @@ const Form = ({ classes }: FormProp) => {
           {...register('birthday', {
             required: ERROR_MESSAGE.IS_REQUIRED,
             pattern: {
-              value: /^(200[0-5]|19[0-9][0-9])-(0[1-9]|1[0-2])-([0-2][1-9]|3[0-1])$/gm,
+              value: /^(200[0-5]|19[0-9][0-9])-(0[1-9]|1[0-2])-([0-2][0-9]|3[0-1])$/gm,
               message: 'You are too young or too old',
             },
           })}
@@ -129,18 +129,20 @@ const Form = ({ classes }: FormProp) => {
         />
         <Button btnText="submit" />
       </form>
-      {cards.map((el: ProfileProp, index: number) => (
-        <Profile
-          key={index}
-          userName={el.userName}
-          birthday={el.birthday}
-          country={el.country}
-          gender={el.gender}
-          avatar={el.avatar}
-          policy={el.policy}
-          marketing={el.marketing}
-        />
-      ))}
+      <section className="profile-list">
+        {cards.map((el: ProfileProp, index: number) => (
+          <Profile
+            key={index}
+            userName={el.userName}
+            birthday={el.birthday}
+            country={el.country}
+            gender={el.gender}
+            avatar={el.avatar}
+            policy={el.policy}
+            marketing={el.marketing}
+          />
+        ))}
+      </section>
     </main>
   );
 };

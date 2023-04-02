@@ -48,3 +48,10 @@
     gap: 0.5rem;
   }
 }
+
+.profile-list {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
