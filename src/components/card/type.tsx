@@ -1,8 +1,8 @@
 export interface CardProp {
   classes?: string;
-  imgLink: string;
+  imgId: string;
   imgAlt: string;
   cardTitle: string;
-  imgAuthor: string;
-  imgYear: string;
+  imgAuthor?: string;
+  imgYear?: string;
 }
