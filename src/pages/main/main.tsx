@@ -8,13 +8,15 @@ import './main.scss';
 
 const Main = () => {
   const [searchValue, setSearchValue] = useState('');
+  const [submittedSearch, setSubmittedSearch] = useState('');
   const [arts, setArts] = useState<ArtWork[] | []>([]);
+  const [isInProgress, setIsInProgress] = useState(false);
   const searchValueRef = useRef(searchValue);
 
-  const getArts = async () => {
+  const getArts = async (searchValue: string) => {
     try {
-      const { data: art, errors, ...rest } = await GalleryService.getArts();
-      console.log(art, rest);
+      setIsInProgress(true);
+      const { data: art, errors } = await GalleryService.getArts(searchValue);
       if (errors) {
         return errors;
       }
@@ -22,18 +24,7 @@ const Main = () => {
     } catch (e) {
       console.log(e);
     }
-  };
-
-  const searchArts = async (searchValue: string) => {
-    try {
-      const { data: art, errors } = await GalleryService.searchArt(searchValue);
-      if (errors) {
-        return errors;
-      }
-      setArts(art);
-    } catch (e) {
-      console.log(e);
-    }
+    setIsInProgress(false);
   };
 
   useEffect(() => {
@@ -48,7 +39,9 @@ const Main = () => {
   }, []);
 
   useEffect(() => {
-    getArts();
+    const storageValue = getStorageByKey('searchValue');
+    getArts(storageValue);
+    setSubmittedSearch(storageValue);
   }, []);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,12 +51,18 @@ const Main = () => {
 
   const onSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    searchArts(searchValue);
+    setSubmittedSearch(searchValue);
+    getArts(searchValue);
   };
   return (
     <main className="main">
       <SearchBar onChange={onChange} searchValue={searchValue} onSearch={onSearch} />
-      <CardList list={arts} />
+      {submittedSearch && <p>Result of searching: {submittedSearch}</p>}
+      {isInProgress ? (
+        <p className="response-progress">Wainting... Response is in progress</p>
+      ) : (
+        <CardList list={arts} />
+      )}
     </main>
   );
 };
