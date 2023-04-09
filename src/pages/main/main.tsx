@@ -53,6 +53,7 @@ const Main = () => {
     e.preventDefault();
     setSubmittedSearch(searchValue);
     getArts(searchValue);
+    setStorageByKey('searchValue', searchValueRef.current);
   };
   return (
     <main className="main">

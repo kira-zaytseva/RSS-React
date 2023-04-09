@@ -45,9 +45,3 @@ interface PaginationData {
   total: number;
   total_pages: number;
 }
-
-// export interface DataInfo {
-//   license_links: string[];
-//   license_text: string;
-//   version: string;
-// }
