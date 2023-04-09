@@ -1,0 +1,46 @@
+@import './../../assets/styles/variables.scss';
+
+.modal-bg {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: $lightBlack;
+}
+
+.card-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 500px;
+  height: 70%;
+  overflow: scroll;
+  background-color: $white;
+  border: 0.0625rem solid $border;
+  border-radius: 1rem;
+
+  &-img {
+    width: 100%;
+    padding-bottom: 0.5rem;
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  &-description {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 0 0.5rem 0.5rem;
+  }
+
+  &-row {
+    font-weight: 700;
+  }
+
+  &-info {
+    font-weight: 400;
+  }
+}

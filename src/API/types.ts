@@ -26,6 +26,10 @@ export interface ArtWork {
   id: number;
   title: string;
   image_id: string;
+  artist_title: string;
+  place_of_origin: string;
+  department_title: string;
+  date_end: string;
 }
 
 interface ConfigData {

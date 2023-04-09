@@ -24,6 +24,18 @@ const Main = () => {
     }
   };
 
+  const searchArts = async (searchValue: string) => {
+    try {
+      const { data: art, errors } = await GalleryService.searchArt(searchValue);
+      if (errors) {
+        return errors;
+      }
+      setArts(art);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
     const currentSearch = getStorageByKey('searchValue');
     if (currentSearch) {
@@ -43,9 +55,14 @@ const Main = () => {
     setSearchValue(e.target.value);
     searchValueRef.current = e.target.value;
   };
+
+  const onSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    searchArts(searchValue);
+  };
   return (
     <main className="main">
-      <SearchBar onChange={onChange} searchValue={searchValue} />
+      <SearchBar onChange={onChange} searchValue={searchValue} onSearch={onSearch} />
       <CardList list={arts} />
     </main>
   );

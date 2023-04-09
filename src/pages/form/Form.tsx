@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FormFields, FormProp } from './type';
+import { ERROR_MESSAGE, FormFields, FormProp } from './type';
 import { countries } from '../../data/countries';
 import RadioButton from '../../components/radioButton/RadioButton';
 import Select from '../../components/select/Select';
@@ -9,11 +9,6 @@ import { ProfileProp } from '../../components/profile/type';
 import './Form.scss';
 import FormField from '../../components/formField/FormField';
 import { useForm } from 'react-hook-form';
-
-const ERROR_MESSAGE = {
-  IS_REQUIRED: 'Field is required',
-  TOO_SHORT: 'Too short',
-};
 
 const Form = ({ classes }: FormProp) => {
   const {

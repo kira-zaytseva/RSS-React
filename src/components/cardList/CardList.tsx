@@ -11,11 +11,14 @@ const CardList = ({ classes, list }: CardListProp) => {
         return (
           <Card
             key={el.id}
+            id={el.id}
             imgId={el.image_id}
             imgAlt={el.title}
             cardTitle={el.title}
-            // imgAuthor={el.author}
-            // imgYear={el.year}
+            imgAuthor={el.artist_title}
+            place={el.place_of_origin}
+            imgDepartment={el.department_title}
+            imgYear={el.date_end}
           />
         );
       })}

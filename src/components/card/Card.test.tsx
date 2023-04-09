@@ -5,16 +5,7 @@ import Card from './Card';
 
 describe('Card', () => {
   it('renders card', () => {
-    render(
-      <Card
-        key="2"
-        imgLink="./"
-        imgAlt="test"
-        cardTitle="Masterpiece"
-        imgAuthor="Vasnecov"
-        imgYear="1736"
-      />
-    );
+    render(<Card key="2" imgId="./" imgAlt="test" cardTitle="Masterpiece" imgAuthor="Monet" />);
 
     screen.debug();
 

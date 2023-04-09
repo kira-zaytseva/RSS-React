@@ -5,7 +5,7 @@ import CardList from './CardList';
 
 describe('CardList', () => {
   it('renders cardList', () => {
-    render(<CardList classes="profile-card" />);
+    render(<CardList classes="profile-card" list={[]} />);
 
     screen.debug();
 
