@@ -1,17 +1,18 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import userReducer from './reducers/UserSlice';
-import artReducer from './reducers/GallerySlice';
 import searchReducer from './reducers/SearchSlice';
+import { galleryApi } from '../API/galleryService';
 
 const rootReducer = combineReducers({
   userReducer,
-  artReducer,
   searchReducer,
+  [galleryApi.reducerPath]: galleryApi.reducer,
 });
 
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(galleryApi.middleware),
   });
 };
 

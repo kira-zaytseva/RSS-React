@@ -23,7 +23,6 @@ const Form = ({ classes }: FormProp) => {
     reset,
   } = useForm<FormFields>();
 
-  // const [cards, setCards] = useState<ProfileProp[] | []>([]);
   const [isActiveMessage, setIsActiveMessage] = useState(false);
   const { cards } = useAppSelector((state) => state.userReducer);
 
