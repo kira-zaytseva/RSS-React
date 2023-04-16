@@ -1,65 +1,35 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect } from 'react';
 import SearchBar from './../../components/searchBar/SearchBar';
 import CardList from './../../components/cardList/CardList';
-import { getStorageByKey, setStorageByKey } from '../../utils/storage';
-import { GalleryService } from '../../API/galleryService';
-import { ArtWork } from '../../API/types';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { getArts } from '../../store/reducers/ActionCreators';
+import { searchSlice } from '../../store/reducers/SearchSlice';
 import './main.scss';
 
 const Main = () => {
-  const [searchValue, setSearchValue] = useState('');
-  const [submittedSearch, setSubmittedSearch] = useState('');
-  const [arts, setArts] = useState<ArtWork[] | []>([]);
-  const [isInProgress, setIsInProgress] = useState(false);
-  const searchValueRef = useRef(searchValue);
-
-  const getArts = async (searchValue: string) => {
-    try {
-      setIsInProgress(true);
-      const { data: art, errors } = await GalleryService.getArts(searchValue);
-      if (errors) {
-        return errors;
-      }
-      setArts(art);
-    } catch (e) {
-      console.log(e);
-    }
-    setIsInProgress(false);
-  };
+  const dispatch = useAppDispatch();
+  const { isLoading, arts } = useAppSelector((state) => state.artReducer);
+  const { searchValue, submittedSearch } = useAppSelector((state) => state.searchReducer);
 
   useEffect(() => {
-    const currentSearch = getStorageByKey('searchValue');
-    if (currentSearch) {
-      setSearchValue(currentSearch);
-      searchValueRef.current = currentSearch;
-    }
-    return () => {
-      setStorageByKey('searchValue', searchValueRef.current);
-    };
-  }, []);
-
-  useEffect(() => {
-    const storageValue = getStorageByKey('searchValue');
-    getArts(storageValue);
-    setSubmittedSearch(storageValue);
+    dispatch(getArts(submittedSearch));
   }, []);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
-    searchValueRef.current = e.target.value;
+    dispatch(searchSlice.actions.search(e.target.value));
   };
 
   const onSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmittedSearch(searchValue);
-    getArts(searchValue);
-    setStorageByKey('searchValue', searchValueRef.current);
+    dispatch(searchSlice.actions.submitSearch(searchValue));
+    dispatch(getArts(searchValue));
   };
+
   return (
     <main className="main">
       <SearchBar onChange={onChange} searchValue={searchValue} onSearch={onSearch} />
       {submittedSearch && <p>Result of searching: {submittedSearch}</p>}
-      {isInProgress ? (
+      {isLoading ? (
         <p className="response-progress">Wainting... Response is in progress</p>
       ) : (
         <CardList list={arts} />

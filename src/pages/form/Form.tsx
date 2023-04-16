@@ -6,11 +6,15 @@ import Select from '../../components/select/Select';
 import Button from '../../components/button/Button';
 import Profile from '../../components/profile/Profile';
 import { ProfileProp } from '../../components/profile/type';
-import './Form.scss';
 import FormField from '../../components/formField/FormField';
 import { useForm } from 'react-hook-form';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { userSlice } from '../../store/reducers/UserSlice';
+import './Form.scss';
 
 const Form = ({ classes }: FormProp) => {
+  const dispatch = useAppDispatch();
+
   const {
     register,
     handleSubmit,
@@ -19,8 +23,9 @@ const Form = ({ classes }: FormProp) => {
     reset,
   } = useForm<FormFields>();
 
-  const [cards, setCards] = useState<ProfileProp[] | []>([]);
+  // const [cards, setCards] = useState<ProfileProp[] | []>([]);
   const [isActiveMessage, setIsActiveMessage] = useState(false);
+  const { cards } = useAppSelector((state) => state.userReducer);
 
   const hideMessage = () => {
     setTimeout(() => {
@@ -32,13 +37,12 @@ const Form = ({ classes }: FormProp) => {
     const { avatar, ...rest } = data;
     try {
       const fileInput = URL.createObjectURL(avatar[0]);
-      setCards([
-        ...cards,
-        {
+      dispatch(
+        userSlice.actions.submitProfile({
           avatar: fileInput,
           ...rest,
-        },
-      ]);
+        })
+      );
       setIsActiveMessage(true);
       reset();
       hideMessage();
