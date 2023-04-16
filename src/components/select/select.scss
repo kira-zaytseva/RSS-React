@@ -1,0 +1,16 @@
+@import './../../assets/styles/variables.scss';
+
+.select {
+  height: 2rem;
+  padding: 0 0.5rem;
+  background-color: $white;
+  border: 0.1rem solid $border;
+  border-radius: 0.5rem;
+  color: $black;
+
+  &-fieldset {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+}
