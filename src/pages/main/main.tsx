@@ -31,7 +31,7 @@ const Main = () => {
   };
 
   return (
-    <main className="main">
+    <main className="main-wrapper">
       <SearchBar onChange={onChange} searchValue={searchValue} onSearch={onSearch} />
       {submittedSearch && <p>Result of searching: {submittedSearch}</p>}
       {isLoading || isLoadingSearchedArts ? (

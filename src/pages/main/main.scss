@@ -1,8 +1,9 @@
-.main {
+.main-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 1rem;
+  padding: 3%;
   overflow: scroll;
 }
 

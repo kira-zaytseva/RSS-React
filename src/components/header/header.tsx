@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { withRouter } from '../../hoc/withRouter/withRouter';
-import { pageNames, Route } from '../../router/routes';
-import './header.scss';
+import { pageNames, RouteName } from '../../router/routes';
 import { WithRouterProps } from 'hoc/withRouter/types';
+import './header.scss';
 
 const HeaderComponent = ({ location: { pathname } }: WithRouterProps) => {
   return (
@@ -13,7 +13,7 @@ const HeaderComponent = ({ location: { pathname } }: WithRouterProps) => {
         <ul className="header__nav__list">
           <li>
             <NavLink
-              to={Route.MAIN}
+              to={RouteName.MAIN}
               className={({ isActive }) => (isActive ? 'nav__link-active' : 'nav__link')}
             >
               Main
@@ -21,7 +21,7 @@ const HeaderComponent = ({ location: { pathname } }: WithRouterProps) => {
           </li>
           <li>
             <NavLink
-              to={Route.ABOUT}
+              to={RouteName.ABOUT}
               className={({ isActive }) => (isActive ? 'nav__link-active' : 'nav__link')}
             >
               About Us
@@ -29,7 +29,7 @@ const HeaderComponent = ({ location: { pathname } }: WithRouterProps) => {
           </li>
           <li>
             <NavLink
-              to={Route.FORM}
+              to={RouteName.FORM}
               className={({ isActive }) => (isActive ? 'nav__link-active' : 'nav__link')}
             >
               Form

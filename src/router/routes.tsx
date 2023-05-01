@@ -1,11 +1,19 @@
 import { AboutUs } from './../pages/aboutUs/aboutUs';
 import React from 'react';
-import App from '../App';
 import { ErrorPage } from './../pages/errorPage/errorPage';
 import Main from './../pages/main/main';
 import Form from '../pages/form/Form';
+import { Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { setupStore } from '../store/store';
+import { Header } from './../components/Header/Header';
+import Footer from './../components/Footer/Footer';
+import '../App.scss';
+import '../index.css';
 
-export enum Route {
+const store = setupStore();
+
+export enum RouteName {
   MAIN = '/',
   ABOUT = '/about',
   FORM = '/form',
@@ -21,23 +29,19 @@ export const pageNames: PathNames = {
   '/form': 'Form',
 };
 
-export const routes = [
-  {
-    element: <App />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: Route.MAIN,
-        element: <Main />,
-      },
-      {
-        path: Route.ABOUT,
-        element: <AboutUs />,
-      },
-      {
-        path: Route.FORM,
-        element: <Form />,
-      },
-    ],
-  },
-];
+export const Router = () => {
+  return (
+    <Provider store={store}>
+      <div className="app-wrapper">
+        <Header />
+        <Routes>
+          <Route index element={<Main />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/form" element={<Form />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Provider>
+  );
+};
