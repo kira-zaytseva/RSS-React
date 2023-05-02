@@ -1,0 +1,20 @@
+@import './../../assets/styles/variables.scss';
+
+.radio {
+  accent-color: $orange;
+  height: 2rem;
+
+  &-fieldset {
+    padding: 0;
+  }
+
+  &-field {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  &-label {
+    display: flex;
+    order: 2;
+  }
+}

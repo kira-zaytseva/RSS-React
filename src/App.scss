@@ -1,0 +1,36 @@
+@import './assets/styles/normalize.scss';
+@import './assets/styles/variables.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $white;
+  color: $black;
+  font-weight: 400;
+  font-family: 'Work Sans', sans-serif;
+}
+
+html,
+body,
+#app,
+.app-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  height: 80%;
+  padding: 1rem 3rem;
+}
